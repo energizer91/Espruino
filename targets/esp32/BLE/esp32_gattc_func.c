@@ -173,11 +173,13 @@ void reverseBDA(uint8_t *bda){
         n--;
     }
 }
-void gattc_connect(uint8_t *addr){
+uint32_t gattc_connect(ble_gap_addr_t *addr){
+	// addr->addr_type is the same in ESP32 and bluetooth.c
 	esp_err_t ret;
-	reverseBDA(addr);
-jsError("new parameter in esp_ble_gattc_open ???\n"); 
-	//ret = esp_ble_gattc_open(gattc_apps[GATTC_PROFILE].gattc_if,addr,true);
+	reverseBDA(addr->addr);
+	ret = esp_ble_gattc_open(gattc_apps[GATTC_PROFILE].gattc_if,addr->addr,addr->addr_type,true);
+	
+	return ret;
 }
 uint32_t gattc_disconnect(uint16_t conn_handle){
 	esp_err_t ret;

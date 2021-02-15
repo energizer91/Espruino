@@ -175,7 +175,8 @@ void jsble_send_hid_input_report(uint8_t *data, int length){
 /// Connect to the given peer address. When done call bleCompleteTask
 void jsble_central_connect(ble_gap_addr_t peer_addr, JsVar *options){
   // Ignore options for now
-	gattc_connect(peer_addr.addr);
+	uint32_t ret = gattc_connect(peer_addr);
+	jsble_check_error(ret);
 }
 /// Get primary services. Filter by UUID unless UUID is invalid, in which case return all. When done call bleCompleteTask
 void jsble_central_getPrimaryServices(ble_uuid_t uuid){
