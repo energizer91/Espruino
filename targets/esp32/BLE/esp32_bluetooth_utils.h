@@ -46,6 +46,7 @@ void jsWarnGapEvent(esp_gap_ble_cb_event_t event);
 
 void jsWarnBDA(uint8_t *bda);
 void jsWarnUUID(esp_bt_uuid_t char_uuid);
+void jsWarnUUID(ble_uuid_t char_uuid);
 void jsWarnHeap(char * whereAmI);
 
 void bleGetHiddenName(char *eventName, char *hiddenName, uint16_t pos);
