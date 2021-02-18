@@ -85,9 +85,7 @@ void gattc_evt_search_cmpl(){
 void gattc_evt_search_res(esp_gatt_if_t gattc_if,esp_ble_gattc_cb_param_t *param){
 	esp_ble_gattc_cb_param_t *p_data = (esp_ble_gattc_cb_param_t *)param;
     esp_gatt_srvc_id_t *srvc_id =(esp_gatt_srvc_id_t *)&p_data->search_res.srvc_id;
-	jsWarnUUID(srvc_id->id.uuid);
-	jsWarnUUID(serviceFilter.uuid);
-	if (srvc_id->id.uuid.len == ESP_UUID_LEN_16 && srvc_id->id.uuid.uuid.uuid16 == serviceFilter.uuid.uuid16) {
+	if (bleuuid_uuid_equal(srvc_id->id.uuid, serviceFilter.uuid)) {
 		get_server = true;
 		gattc_apps[GATTC_PROFILE].service_start_handle = p_data->search_res.start_handle;
 		gattc_apps[GATTC_PROFILE].service_end_handle = p_data->search_res.end_handle;
