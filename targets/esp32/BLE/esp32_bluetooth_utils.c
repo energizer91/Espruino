@@ -199,7 +199,7 @@ void jsWarnGapEvent(esp_gap_ble_cb_event_t event){
 }
 
 void jsWarnUUID(esp_bt_uuid_t char_uuid){
-	jsWarn("UUID TYPE: %x", char_uuid.uuid.type);
+	jsWarn("UUID TYPE: %x", char_uuid.len);
 	if (char_uuid.len == ESP_UUID_LEN_16) {
 		jsWarn("- - - Char UUID16: %x", char_uuid.uuid.uuid16);
 	} else if (char_uuid.len == ESP_UUID_LEN_32) {
