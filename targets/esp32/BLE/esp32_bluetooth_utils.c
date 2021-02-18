@@ -60,7 +60,7 @@ esp_err_t registerCallbacks(){
 	esp_err_t ret;
 	ret = esp_ble_gap_register_callback(gap_event_handler);if (ret){jsWarn("gap register error:%x\n", ret);return ret;}
 	ret = esp_ble_gatts_register_callback(gatts_event_handler);if(ret){jsWarn("gatts register error:%x\n", ret);return ret;}	
-	ret = esp_ble_gattc_register_callback(gattc_event_handler);if(ret){jsWarn("gattc regigister error:%x\n",ret);return ret;}
+	ret = esp_ble_gattc_register_callback(gattc_event_handler);if(ret){jsWarn("gattc register error:%x\n",ret);return ret;}
 	return ret;
 }
 esp_err_t setMtu(){
