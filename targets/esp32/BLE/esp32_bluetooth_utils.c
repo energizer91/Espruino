@@ -309,7 +309,7 @@ void bleuuid_To_uuid128(ble_uuid_t ble_uuid,uint8_t *ble128){
 	}
 }
 
-bool uuid128_equal(uint16_t *uuid1, uint16_t *uuid2) {
+bool uuid128_equal(uint8_t *uuid1, uint8_t *uuid2) {
 	for (size_t i = 0; i < ESP_UUID_LEN_128; i++) {
 		if (uuid1[i] != uuid2[i]) {
 			return false;

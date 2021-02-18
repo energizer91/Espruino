@@ -180,12 +180,10 @@ void jsble_central_connect(ble_gap_addr_t peer_addr, JsVar *options){
 }
 /// Get primary services. Filter by UUID unless UUID is invalid, in which case return all. When done call bleCompleteTask
 void jsble_central_getPrimaryServices(ble_uuid_t uuid){
-	jsWarnUUID_BLE(uuid);
 	gattc_searchService(uuid);
 }
 /// Get characteristics. Filter by UUID unless UUID is invalid, in which case return all. When done call bleCompleteTask
 void jsble_central_getCharacteristics(JsVar *service, ble_uuid_t uuid){
-	jsWarnUUID_BLE(uuid);
 	gattc_getCharacteristic(uuid);
 	UNUSED(service);
 }
