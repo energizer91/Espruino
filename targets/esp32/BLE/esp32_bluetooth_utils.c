@@ -216,7 +216,7 @@ void jsWarnUUID(esp_bt_uuid_t char_uuid){
 	}
 }
 
-void jsWarnUUID(ble_uuid_t char_uuid){
+void jsWarnUUID_BLE(ble_uuid_t char_uuid){
 	jsWarn("UUID TYPE: %x", char_uuid.type);
 	if (char_uuid.type == BLE_UUID_TYPE_BLE) {
 		jsWarn("- - - Char UUID16: %x", char_uuid.uuid);
