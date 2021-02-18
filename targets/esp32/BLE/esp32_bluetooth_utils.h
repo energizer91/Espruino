@@ -54,5 +54,6 @@ void bleRemoveChilds(JsVar *parent);
 
 void bleuuid_TO_espbtuuid(ble_uuid_t ble_uuid,esp_bt_uuid_t *esp_uuid);
 void bleuuid_To_uuid128(ble_uuid_t ble_uuid,uint8_t *ble128);  
+bool bleuuid_uuid_equal(esp_bt_uuid_t source, esp_bt_uuid_t target);
 
 #endif /* ESP32_BLUETOOTH_UTILS_H_ */

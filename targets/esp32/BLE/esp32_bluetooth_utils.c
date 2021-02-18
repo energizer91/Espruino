@@ -319,13 +319,13 @@ bool uuid128_equal(uint16_t *uuid1, uint16_t *uuid2) {
 	return true;
 }
 
-bool bleuuid_uuid_equal(esp_bt_uuid_t source, ble_uuid_t target) {
+bool bleuuid_uuid_equal(esp_bt_uuid_t source, esp_bt_uuid_t target) {
 	if (source.len == ESP_UUID_LEN_16) {
-		return source.uuid16 == target.uuid16;
+		return source.uuid.uuid16 == target.uuid.uuid16;
 	}
 
 	if (source.len == ESP_UUID_LEN_128) {
-		return uuid128_equal(source.uuid128, target.uuid128);
+		return uuid128_equal(source.uuid.uuid128, target.uuid.uuid128);
 	}
 
 	return false;
