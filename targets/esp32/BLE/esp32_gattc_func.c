@@ -41,7 +41,7 @@ static esp_bt_uuid_t serviceFilter = {
 };
 static esp_bt_uuid_t charFilter = {
 	.len = ESP_UUID_LEN_16,
-	.uuid = {.uuid16 = 0}
+	.uuid = {.uuid16 = 0,},
 };
 static bool get_server = false;
 static esp_gattc_char_elem_t *char_elem_result   = NULL;
