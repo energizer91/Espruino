@@ -60,6 +60,7 @@ void gattc_evt_connect(esp_gatt_if_t gattc_if,esp_ble_gattc_cb_param_t *param){
 }
 void gattc_evt_disconnect(esp_gatt_if_t gattc_if,esp_ble_gattc_cb_param_t *param){
 	m_central_conn_handle = BLE_GATT_HANDLE_INVALID;
+	bleCompleteTaskSuccess(BLETASK_DISCONNECT,0);
 }
 void gattc_evt_cfg_mtu(esp_gatt_if_t gattc_if,esp_ble_gattc_cb_param_t *param){
 	if (!bleTaskInfo) bleTaskInfo = jsvNewEmptyArray();
@@ -157,7 +158,7 @@ void gattc_event_handler(esp_gattc_cb_event_t event, esp_gatt_if_t gattc_if, esp
       case ESP_GATTC_ADV_VSC_EVT: break;
       case ESP_GATTC_REG_FOR_NOTIFY_EVT: break;
       case ESP_GATTC_UNREG_FOR_NOTIFY_EVT: break;
-      case ESP_GATTC_DISCONNECT_EVT: break;
+      case ESP_GATTC_DISCONNECT_EVT: gattc_evt_disconnect(gattc_if, param);break;
 	  default: break;
 	}
 }
