@@ -132,9 +132,11 @@ bool jsble_has_peripheral_connection(){
 
 /// Checks for error and reports an exception if there was one. Return true on error
 bool jsble_check_error(uint32_t err_code){
-	jsWarn("check error not implemented yet:%x\n",err_code);
-	UNUSED(err_code);
-	return false;
+	if (err_code == 0) {
+		return false;
+	}
+	jsWarn("BLE Error:%x\n",err_code);
+	return true;
 }
 /// Scanning for advertisign packets
 uint32_t jsble_set_scanning(bool enabled, bool activeScan){

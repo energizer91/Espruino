@@ -60,7 +60,8 @@ void gattc_evt_connect(esp_gatt_if_t gattc_if,esp_ble_gattc_cb_param_t *param){
 }
 void gattc_evt_disconnect(esp_gatt_if_t gattc_if,esp_ble_gattc_cb_param_t *param){
 	m_central_conn_handle = BLE_GATT_HANDLE_INVALID;
-	bleCompleteTaskSuccess(BLETASK_DISCONNECT,0);
+	if (bleInTask(BLETASK_DISCONNECT))
+		bleCompleteTaskSuccess(BLETASK_DISCONNECT, 0);
 }
 void gattc_evt_cfg_mtu(esp_gatt_if_t gattc_if,esp_ble_gattc_cb_param_t *param){
 	if (!bleTaskInfo) bleTaskInfo = jsvNewEmptyArray();
