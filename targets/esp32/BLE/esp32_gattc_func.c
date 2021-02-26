@@ -183,11 +183,8 @@ uint32_t gattc_connect(ble_gap_addr_t addr){
 	
 	return ret;
 }
-uint32_t gattc_disconnect(uint16_t conn_handle){
-	esp_err_t ret, gat_err;
-	ret = esp_ble_gattc_close(gattc_apps[GATTC_PROFILE].gattc_if,gattc_apps[GATTC_PROFILE].conn_id);
-	gat_err = esp_ble_gap_disconnect(conn_handle);
-	return ret || gat_err;
+uint32_t gattc_disconnect(){
+	return esp_ble_gattc_close(gattc_apps[GATTC_PROFILE].gattc_if,gattc_apps[GATTC_PROFILE].conn_id);
 }
 void gattc_searchService(ble_uuid_t uuid){
 	bleuuid_TO_espbtuuid(uuid,&serviceFilter);

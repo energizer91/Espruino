@@ -173,6 +173,10 @@ void bluetooth_gap_setScan(bool enable){
 	}
 }
 
+esp_err_t gap_disconnect(uint16_t conn_handle) {
+	return esp_ble_gap_disconnect(conn_handle);
+}
+
 esp_err_t bluetooth_gap_startAdvertizing(bool enable){
 	if(enable){
 		return esp_ble_gap_start_advertising(&adv_params);

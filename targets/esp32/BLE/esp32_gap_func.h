@@ -20,6 +20,7 @@
 #define BLE_DEVICE_NAME "BLE_DEV_N"
 
 void bluetooth_gap_setScan(bool enabled);
+esp_err_t gap_disconnect(uint16_t conn_handle);
 
 void gap_init_security();
 

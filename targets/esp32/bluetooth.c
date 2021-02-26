@@ -163,8 +163,7 @@ void jsble_set_services(JsVar *data){
 
 /// Disconnect from the given connection
 uint32_t jsble_disconnect(uint16_t conn_handle){
-	return gattc_disconnect(conn_handle);
-	return 0;
+	return gap_disconnect(conn_handle);
 }
 
 /// For BLE HID, send an input report to the receiver. Must be <= HID_KEYS_MAX_LEN
