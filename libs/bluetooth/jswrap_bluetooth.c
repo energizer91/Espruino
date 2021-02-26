@@ -3118,7 +3118,7 @@ JsVar *jswrap_BluetoothRemoteGATTServer_disconnect(JsVar *parent) {
       #ifdef NRF52_SERIES
       err_code = sd_ble_gap_connect_cancel();
       #endif
-      #ifdef NRF52_SERIES
+      #ifdef ESP32
       // err_code = esp_ble_gap_disconnect(); // need something else, but can't find it in ESP32 API
       jsWarn("connect cancel not implemented yet\n");
       #endif
