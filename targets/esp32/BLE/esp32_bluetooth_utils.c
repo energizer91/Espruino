@@ -216,22 +216,6 @@ void jsWarnUUID(esp_bt_uuid_t char_uuid){
 	}
 }
 
-void jsWarnUUID_BLE(ble_uuid_t char_uuid){
-	jsWarn("UUID TYPE: %x", char_uuid.type);
-	if (char_uuid.type == BLE_UUID_TYPE_BLE) {
-		jsWarn("- - - Char UUID16: %x", char_uuid.uuid);
-	} else if (char_uuid.type == BLE_UUID_TYPE_128) {
-		jsWarn("- - - Char UUID128: %x,%x,%x,%x,%x,%x,%x,%x,%x,%x,%x,%x,%x,%x,%x,%x", char_uuid.uuid128[0],
-			char_uuid.uuid128[1], char_uuid.uuid128[2], char_uuid.uuid128[3],
-			char_uuid.uuid128[4], char_uuid.uuid128[5], char_uuid.uuid128[6],
-			char_uuid.uuid128[7], char_uuid.uuid128[8], char_uuid.uuid128[9],
-			char_uuid.uuid128[10], char_uuid.uuid128[11], char_uuid.uuid128[12],
-			char_uuid.uuid128[13], char_uuid.uuid128[14], char_uuid.uuid128[15]);
-	} else {
-		jsWarn("- - - Char UNKNOWN LEN %d\n", char_uuid.type);
-	}
-}
-
 void jsWarnBDA(uint8_t *bda){
 	jsWarn("bda %02x:%02x:%02x:%02x:%02x:%02x\n",bda[0],bda[1],bda[2],bda[3],bda[4],bda[5]);
 }
